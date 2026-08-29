@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Morning, Hasnaa 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-lavender: #B9A9DA;
+    --sky-rose: #F3B9C7;
+    --sky-peach: #FBDCC4;
+    --cream: #FFF8F0;
+    --ink: #4A3F5C;
+    --ink-soft: #6E6182;
+    --coral: #E8879C;
+    --thread: #C6567A;
+    --card-bg: #FFFDFB;
+    --shadow: rgba(90, 70, 110, 0.15);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, .script{
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    min-height: 100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 2rem 1.25rem;
+    overflow:hidden;
+    background: linear-gradient(180deg, var(--sky-lavender) 0%, var(--sky-rose) 45%, var(--sky-peach) 78%, var(--cream) 100%);
+  }
+
+  .hero::before{
+    /* soft sun/moon glow, kataware-doki style */
+    content:"";
+    position:absolute;
+    top: 14%;
+    left: 50%;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255,246,235,0.95) 0%, rgba(255,222,196,0.55) 45%, rgba(255,222,196,0) 72%);
+    border-radius:50%;
+    transform: translateX(-50%);
+    filter: blur(1px);
+    pointer-events:none;
+  }
+
+  .stars{
+    position:absolute; inset:0 0 55% 0;
+    pointer-events:none;
+  }
+  .stars span{
+    position:absolute;
+    width:3px; height:3px;
+    background: #fff;
+    border-radius:50%;
+    opacity:.55;
+    animation: twinkle 3.2s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:.15; }
+    50%{ opacity:.8; }
+  }
+
+  .comet{
+    position:absolute;
+    top: 16%;
+    left: -10%;
+    width: 5px; height:5px;
+    background: #fff8ec;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 3px rgba(255,248,236,0.9);
+    animation: fly 9s linear infinite;
+    animation-delay: 2s;
+    opacity:0;
+  }
+  .comet::after{
+    content:"";
+    position:absolute;
+    top:50%; right:100%;
+    width:90px; height:1.5px;
+    background: linear-gradient(90deg, transparent, rgba(255,248,236,0.75));
+    transform: translateY(-50%) rotate(0deg);
+  }
+  @keyframes fly{
+    0%{ transform: translate(0,0); opacity:0; }
+    5%{ opacity:1; }
+    45%{ transform: translate(115vw, 20vh); opacity:1; }
+    50%{ opacity:0; }
+    100%{ opacity:0; transform: translate(115vw, 20vh); }
+  }
+
+  .petal{
+    position:absolute;
+    top:-5%;
+    font-size: 18px;
+    user-select:none;
+    pointer-events:none;
+    will-change: transform, opacity;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
+  }
+  @keyframes fall{
+    0%{ transform: translateY(-8vh) translateX(0) rotate(0deg); opacity:0; }
+    8%{ opacity:.9; }
+    100%{ transform: translateY(112vh) translateX(var(--drift, 40px)) rotate(340deg); opacity:.15; }
+  }
+
+  .eyebrow{
+    position:relative;
+    z-index:2;
+    font-family:'Quicksand';
+    font-weight:600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: .7rem;
+    color: var(--ink);
+    opacity:.65;
+    margin-bottom: .6rem;
+  }
+
+  .hero h1{
+    position:relative; z-index:2;
+    font-size: clamp(2.8rem, 9vw, 5.2rem);
+    margin: 0 0 .4rem 0;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .hero p.sub{
+    position:relative; z-index:2;
+    max-width: 480px;
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+    color: var(--ink-soft);
+    line-height:1.6;
+    margin: 0 auto;
+  }
+
+  .scroll-cue{
+    position:relative; z-index:2;
+    margin-top: 3rem;
+    font-family:'Quicksand';
+    font-size:.85rem;
+    color: var(--ink-soft);
+    opacity:.8;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.3rem;
+  }
+  .scroll-cue span{ animation: bob 2.2s ease-in-out infinite; font-size:1.1rem; }
+  @keyframes bob{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(6px); }
+  }
+
+  /* ---------- GARDEN SECTION ---------- */
+  .garden{
+    background: var(--cream);
+    padding: 5rem 1.25rem 4rem;
+    text-align:center;
+  }
+  .garden h2{
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    margin: 0 0 .4rem;
+    color: var(--ink);
+  }
+  .garden > p{
+    color: var(--ink-soft);
+    margin: 0 auto 3rem;
+    max-width: 420px;
+    font-size: .98rem;
+  }
+
+  .cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .card{
+    background: var(--card-bg);
+    border-radius: 22px;
+    padding: 1.8rem 1.4rem;
+    box-shadow: 0 10px 30px var(--shadow);
+    text-align:left;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .card:hover{ transform: translateY(-6px); box-shadow: 0 16px 34px var(--shadow); }
+  .card .icon{ width:42px; height:42px; margin-bottom: .9rem; }
+  .card h3{
+    font-family:'Quicksand'; font-weight:700;
+    font-size: 1.05rem;
+    margin: 0 0 .5rem;
+    color: var(--ink);
+  }
+  .card p{
+    font-size: .9rem;
+    line-height:1.55;
+    color: var(--ink-soft);
+    margin:0;
+  }
+
+  /* ---------- THREAD / LETTER SECTION ---------- */
+  .thread-section{
+    position:relative;
+    background: linear-gradient(180deg, var(--cream), #FDEFE6 55%, var(--sky-rose) 100%);
+    padding: 5rem 1.25rem 6rem;
+    text-align:center;
+    overflow:hidden;
+  }
+  .thread-section h2{
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    margin: 0 0 .3rem;
+  }
+  .thread-section > p.intro{
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin: 0 auto 2.4rem;
+    font-size: .98rem;
+  }
+
+  .thread-wrap{
+    position:relative;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  svg.thread-svg{ width:100%; height:auto; display:block; }
+  .thread-path{
+    fill:none;
+    stroke: var(--thread);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: draw 2.4s ease forwards .3s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+
+  .bud-btn{
+    appearance:none;
+    border:none;
+    background: none;
+    cursor:pointer;
+    padding: 0;
+    position:absolute;
+    left:50%;
+    top:100%;
+    transform: translate(-50%, -50%);
+    width: 74px; height: 74px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 8px 20px var(--shadow);
+    background: var(--card-bg);
+    transition: transform .3s ease;
+  }
+  .bud-btn:hover{ transform: translate(-50%, -50%) scale(1.06); }
+  .bud-btn:focus-visible{ outline: 3px solid var(--thread); outline-offset: 3px; }
+  .bud-btn svg{ width: 36px; height:36px; transition: transform .5s ease; }
+  .bud-btn.opened svg{ transform: scale(1.15) rotate(8deg); }
+
+  .hint{
+    margin-top: 3.4rem;
+    font-size: .85rem;
+    color: var(--ink-soft);
+    opacity:.75;
+  }
+
+  .letter{
+    max-width: 480px;
+    margin: 2.4rem auto 0;
+    background: var(--card-bg);
+    border-radius: 26px;
+    padding: 2.2rem 1.8rem;
+    box-shadow: 0 18px 40px var(--shadow);
+    text-align:left;
+    opacity:0;
+    transform: translateY(18px) scale(.98);
+    max-height:0;
+    overflow:hidden;
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .letter.show{
+    opacity:1;
+    transform: translateY(0) scale(1);
+    max-height: 1000px;
+    padding: 2.2rem 1.8rem;
+    margin-top: 2.4rem;
+  }
+  .letter p{
+    font-size: 1rem;
+    line-height:1.75;
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+  .letter p:last-child{ margin-bottom:0; }
+  .letter .sign{
+    font-family:'Caveat';
+    font-size: 1.6rem;
+    color: var(--thread);
+  }
+
+  .petal-burst{
+    position:absolute;
+    width:8px; height:8px;
+    top:0; left:0;
+    pointer-events:none;
+    opacity:0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--sky-rose);
+    text-align:center;
+    padding: 2.4rem 1.25rem 2.8rem;
+    color: var(--ink);
+    font-size: .85rem;
+  }
+  footer .script{
+    display:block;
+    font-size: 1.5rem;
+    margin-bottom: .3rem;
+  }
+
+  /* ---------- RAIN TOGGLE ---------- */
+  .rain-btn{
+    position: fixed;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    z-index: 50;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 999px;
+    padding: .7rem 1.1rem;
+    font-family:'Quicksand'; font-weight:600;
+    font-size: .82rem;
+    color: var(--ink);
+    box-shadow: 0 10px 24px var(--shadow);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+    transition: transform .25s ease;
+  }
+  .rain-btn:hover{ transform: translateY(-2px); }
+  .rain-btn:focus-visible{ outline: 3px solid var(--thread); outline-offset: 2px; }
+
+  .rain-layer{
+    position: fixed;
+    inset:0;
+    pointer-events:none;
+    z-index: 40;
+    opacity:0;
+    transition: opacity .5s ease;
+  }
+  .rain-layer.active{ opacity:1; }
+  .drop{
+    position:absolute;
+    top:-10%;
+    width:1.5px;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(120,120,160,0), rgba(120,120,160,0.55));
+    animation: raindrop linear infinite;
+  }
+  @keyframes raindrop{
+    0%{ transform: translateY(-10vh); }
+    100%{ transform: translateY(110vh); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    .petal, .comet, .drop{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="comet"></div>
+  <p class="eyebrow">a little something for</p>
+  <h1>Good morning,<br>Hasnaa</h1>
+  <p class="sub">Wherever you are right now — I hope the light finds you soft, your coffee's warm, and today treats you exactly as sweetly as you treat everyone else.</p>
+  <div class="scroll-cue" aria-hidden="true">
+    <span>↓</span>
+    keep going
+  </div>
+</section>
+
+<section class="garden">
+  <h2>little things that remind me of you</h2>
+  <p>none of these are random. they're just the things I can't look at anymore without thinking of you.</p>
+  <div class="cards">
+
+    <div class="card">
+      <svg class="icon" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="14" r="7" fill="#F3B9C7"/>
+        <circle cx="14" cy="24" r="7" fill="#F8D3DD"/>
+        <circle cx="34" cy="24" r="7" fill="#F8D3DD"/>
+        <circle cx="24" cy="32" r="7" fill="#F3B9C7"/>
+        <circle cx="24" cy="24" r="5" fill="#E8879C"/>
+      </svg>
+      <h3>Flowers</h3>
+      <p>You notice beauty other people walk straight past — a small bloom on a balcony, a weird little weed with a nice shape. You collect softness on purpose.</p>
+    </div>
+
+    <div class="card">
+      <svg class="icon" viewBox="0 0 48 48" fill="none">
+        <path d="M10 20 Q24 6 38 20" stroke="#B9A9DA" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <line x1="14" y1="28" x2="11" y2="36" stroke="#9E8FC2" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="22" y1="28" x2="19" y2="38" stroke="#9E8FC2" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="30" y1="28" x2="27" y2="38" stroke="#9E8FC2" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="38" y1="28" x2="35" y2="36" stroke="#9E8FC2" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Rainy days</h3>
+      <p>Everyone else complains about the weather. You just get quieter and cozier, like the world finally slowed down to your pace.</p>
+    </div>
+
+    <div class="card">
+      <svg class="icon" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="15" fill="#FBDCC4"/>
+        <path d="M6 18 L20 24 L6 30 Z" fill="#FFF8F0"/>
+        <circle cx="34" cy="14" r="2" fill="#fff"/>
+        <circle cx="40" cy="20" r="1.4" fill="#fff"/>
+        <circle cx="38" cy="10" r="1.2" fill="#fff"/>
+      </svg>
+      <h3>"Your Name"</h3>
+      <p>The comet, the twilight sky, two people finding their way back to each other against every kind of odds. It's basically our whole vibe.</p>
+    </div>
+
+    <div class="card">
+      <svg class="icon" viewBox="0 0 48 48" fill="none">
+        <path d="M17 30V13l18-4v17" stroke="#C6567A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="14" cy="32" r="5" fill="#F3B9C7"/>
+        <circle cx="31" cy="28" r="5" fill="#F3B9C7"/>
+      </svg>
+      <h3>"Her" — JAke</h3>
+      <p>Our song. The one that comes on and suddenly I'm not doing anything else — just thinking about you.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="thread-section">
+  <h2>one more thing</h2>
+  <p class="intro">you know the story — two people, a red thread, and no distance that can undo it. pull it.</p>
+
+  <div class="thread-wrap">
+    <svg class="thread-svg" viewBox="0 0 340 90" aria-hidden="true">
+      <path class="thread-path" d="M20 20 C 90 90, 250 90, 320 20" />
+      <circle cx="20" cy="20" r="7" fill="#E8879C"/>
+      <circle cx="320" cy="20" r="7" fill="#E8879C"/>
+    </svg>
+
+    <button class="bud-btn" id="budBtn" aria-expanded="false" aria-controls="letter">
+      <svg viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="16" r="8" fill="#F3B9C7"/>
+        <circle cx="14" cy="26" r="8" fill="#F8D3DD"/>
+        <circle cx="34" cy="26" r="8" fill="#F8D3DD"/>
+        <circle cx="24" cy="32" r="8" fill="#F3B9C7"/>
+        <circle cx="24" cy="25" r="6" fill="#E8879C"/>
+      </svg>
+    </button>
+  </div>
+
+  <p class="hint" id="hint">tap the flower to open it</p>
+
+  <div class="letter" id="letter">
+    <p>Good morning, my love,</p>
+    <p>If today feels heavy before it's even started — remember someone, somewhere across the distance, was thinking about you before their coffee was even ready.</p>
+    <p>You have this way of making ordinary days feel like scenes from your favorite movie — the twilight kind, where two people keep finding their way back to each other no matter how far apart they are.</p>
+    <p>Rainy afternoons, flowers nobody else notices, that one song that's basically ours now — all of it reminds me of you. All of it always will.</p>
+    <p>I just wanted today to start with you knowing that.</p>
+    <p class="sign">— always yours</p>
+  </div>
+</section>
+
+<footer>
+  <span class="script">good morning, beautiful</span>
+  made with love, one soft morning at a time 🌦️🌸
+</footer>
+
+<button class="rain-btn" id="rainBtn" aria-pressed="false">☔ let it rain</button>
+<div class="rain-layer" id="rainLayer" aria-hidden="true"></div>
+
+<script>
+  // stars
+  const starsWrap = document.getElementById('stars');
+  for(let i=0;i<26;i++){
+    const s = document.createElement('span');
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*70 + '%';
+    s.style.animationDelay = (Math.random()*3) + 's';
+    starsWrap.appendChild(s);
+  }
+
+  // falling petals
+  const petalChars = ['🌸','🌷','🌼'];
+  const heroSection = document.querySelector('.hero');
+  function spawnPetal(){
+    const p = document.createElement('span');
+    p.className = 'petal';
+    p.textContent = petalChars[Math.floor(Math.random()*petalChars.length)];
+    const left = Math.random()*100;
+    const duration = 8 + Math.random()*7;
+    const drift = (Math.random()*80 - 40) + 'px';
+    p.style.left = left + '%';
+    p.style.setProperty('--drift', drift);
+    p.style.animationDuration = duration + 's';
+    p.style.fontSize = (14 + Math.random()*10) + 'px';
+    heroSection.appendChild(p);
+    setTimeout(()=> p.remove(), duration*1000 + 200);
+  }
+  for(let i=0;i<6;i++) setTimeout(spawnPetal, i*900);
+  setInterval(spawnPetal, 1400);
+
+  // bud / letter reveal
+  const budBtn = document.getElementById('budBtn');
+  const letter = document.getElementById('letter');
+  const hint = document.getElementById('hint');
+  let opened = false;
+  budBtn.addEventListener('click', () => {
+    opened = !opened;
+    budBtn.classList.toggle('opened', opened);
+    letter.classList.toggle('show', opened);
+    budBtn.setAttribute('aria-expanded', String(opened));
+    hint.textContent = opened ? 'there you go 💌' : 'tap the flower to open it';
+    if(opened){
+      letter.scrollIntoView({ behavior:'smooth', block:'center' });
+    }
+  });
+
+  // rain toggle
+  const rainBtn = document.getElementById('rainBtn');
+  const rainLayer = document.getElementById('rainLayer');
+  let raining = false;
+  let rainInterval = null;
+
+  function spawnDrop(){
+    const d = document.createElement('div');
+    d.className = 'drop';
+    d.style.left = Math.random()*100 + '%';
+    const dur = 0.7 + Math.random()*0.6;
+    d.style.animationDuration = dur + 's';
+    d.style.opacity = (0.3 + Math.random()*0.4).toString();
+    rainLayer.appendChild(d);
+    setTimeout(()=> d.remove(), dur*1000 + 100);
+  }
+
+  rainBtn.addEventListener('click', () => {
+    raining = !raining;
+    rainBtn.setAttribute('aria-pressed', String(raining));
+    rainLayer.classList.toggle('active', raining);
+    rainBtn.textContent = raining ? '☀️ stop the rain' : '☔ let it rain';
+    if(raining){
+      rainInterval = setInterval(spawnDrop, 60);
+    } else {
+      clearInterval(rainInterval);
+    }
+  });
+</script>
+
+</body>
+</html>
